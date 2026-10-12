@@ -3,7 +3,7 @@ package config
 import "os"
 
 type Config struct {
-	AppAddr string
+	AppAddr     string
 	DatabaseURL string
 }
 
@@ -20,7 +20,6 @@ func Load() Config {
 		),
 	}
 
-	
 }
 
 func getEnv(

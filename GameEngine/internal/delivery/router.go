@@ -5,7 +5,7 @@ import "net/http"
 func GeneralRouter(handler *Handler) http.Handler {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /health", handler.Health,)
+	mux.HandleFunc("GET /health", handler.Health)
 
 	return mux
 }

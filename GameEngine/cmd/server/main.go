@@ -12,6 +12,7 @@ import (
 
 	"github.com/iDIOtu/PivchikiDND/internal/config"
 	"github.com/iDIOtu/PivchikiDND/internal/database"
+	dbsqlc "github.com/iDIOtu/PivchikiDND/internal/database/sqlc"
 	"github.com/iDIOtu/PivchikiDND/internal/delivery"
 )
 
@@ -55,7 +56,8 @@ func main() {
 		"postgres connection established",
 	)
 
-	handler := delivery.NewHandler(db)
+	queries := dbsqlc.New(db)
+	handler := delivery.NewHandler(db, queries)
 
 	router := delivery.AppRouter(
 		handler,
